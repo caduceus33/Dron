@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+			
+			.leftDiv
+			{
+				background-color: #bfdd5456;
+				color: #000;
+				height: 600px;
+				width: 50%;
+				float: left;
+			}
+			
+            			
+	</style>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.35/dist/web3.min.js"></script>
+    <script src="gestion.js"></script>
+    </head>
+<body>
+    <div class="leftDiv" id="parcela">
+    <h1>CLIENTE</h1>
+    <h2> Registrar parcela </h2>
+    
+    <table>
+        <tr>
+            <td>
+                <div class="custom-select" style="width:300px;">
+                    Selecciona pesticida:
+                <select id="pesticida">
+                    <option value="0">Seleccionar pesticida:</option>
+                    <option value="1">Pesticida A</option>
+                    <option value="2">Pesticida B</option>
+                    <option value="3">Pesticida C</option>
+                    <option value="4">Pesticida D</option>
+                    <option value="5">Pesticida E</option>
+                </select>
+                </div> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Altura m&aacute;xima:
+                <input type="text" name="altmax" id="altmax">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Altura m&iacute;nima:
+                <input type="text" name="altmin" id="altmin">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tama&ntilde;o de la parcela:
+                <input type="text" name="size" id="size">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Precio max por m2:
+                <input type="text" name="preciomaxm2" id="preciomaxm2">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input type="button" name="registrar_parcela" value="Registrar parcela" onclick="registrarparcela()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" name="modificar_parcela" value="Modifica parcela existente" onclick="modificarparcela()">
+                <input type="text" name="idp" id="idp"> id parcela
+            </td>
+        </tr>       
+    </table>
+    
+    <h2>Solicitar Trabajo</h2>
+    <form name="contratarDron">
+    <table>
+        <tr>
+            <td>
+                Selecciona parcela por id:
+                <input type="text" name="contratardron" id="contratardron">
+            </td>
+        </tr>
+        <tr>
+        <td>
+        <input type="button" name="contratar_dron" value="Aprobar trabajo" onclick="solicitartrabajo(contratarDron.contratardron.value)">
+        </td>
+    </tr>
+    </table>
+</form>
+</div>
+    
+
+    <div id="dron" class="leftDiv">
+    <h1>EMPRESA</h1>
+    <h2> Registrar Dron </h2>
+    <form name="registrarDron">
+    <table>
+        <tr>
+            <td>
+                <div class="custom-select" style="width:300px;">
+                    Selecciona pesticida:
+                <select id="pesticidad">
+                    <option value="0">Seleccionar pesticida:</option>
+                    <option value="1">Pesticida A</option>
+                    <option value="2">Pesticida B</option>
+                    <option value="3">Pesticida C</option>
+                    <option value="4">Pesticida D</option>
+                    <option value="5">Pesticida E</option>
+                </select>
+                </div> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Altura m&aacute;xima:
+                <input type="text" name="max" id="max">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Altura m&iacute;nima:
+                <input type="text" name="max" id="min">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Precio por m2:
+                <input type="text" name="preciom2" id="preciom2">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input type="button" name="registrar_dron" value="Registrar dron" onclick="registrardron()">
+            </td>
+        </tr>
+       
+    </table>
+    </form>
+    <h2>Fumigar</h2>
+
+    
+    <form name="fumigar">
+    <table>
+        <tr>
+            <td>
+                Selecciona parcela por id:
+                <input type="text" name="pid" id="pid">
+            </td>
+        </tr>
+        <tr>
+            <tr>
+                <td>
+                    Selecciona dron por id:
+                    <input type="text" name="did" id="did">
+                </td>
+            </tr>
+            <tr>
+        <td>
+        <input type="button" name="contratar_dron" value="Fumigar" onclick="fum()">
+        </td>
+    </tr>
+</table>
+</form>
+</div>
+<div class="leftDiv">
+    <h3>Mensajes:</h3>
+    <textarea id ="msgs" style="width: 600px; height: 500px;">
+
+    </textarea>
+    
+</div>
+<div class="leftDiv">
+
+<input type="button" style="height: 100px; font-size: 33px;" name="obtenerbono" value="Obtener 1.000.000 TokenDron" onclick="bono()">
+
+</div>
+
+    
+
+</body>
+</html>
